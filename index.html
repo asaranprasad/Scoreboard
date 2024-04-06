@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <meta name="description" content="Scoreboard App">
+  <title>Scoreboard</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styling -->
+  <!-- <link href="score.css" rel="stylesheet"> -->
+  <style>
+    .container {
+      max-width: 960px;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .big-container {
+      height: 100vh;
+    }
+
+    .home-team {
+     background: #AA4A44;
+   }
+
+   .away-team {
+     background: #4a8ba1;
+   }
+
+   .h1 {
+    font-size: 70vh;
+    font-weight: bold;
+    color: white;
+    transform: scaleY(1.1);
+  }
+
+  .h2 {
+    font-size: 15vh;
+    font-weight: bold;
+    color: white;
+  }
+
+  .undo-button {
+    margin: 0px;
+  }
+</style>
+
+<!-- Custom JS -->
+<script>
+  function changeScore(id, increment) {
+    const elm = document.getElementById(id);
+    let score = elm.innerHTML;
+    score = parseInt(score) + parseInt(increment); 
+    elm.innerHTML = score;
+  }
+</script>
+
+</head>
+
+
+<body>
+
+  <div class="row text-center g-0 big-container">
+
+    <!-- Home Team -->
+    <div class="col">
+      <div class="card shadow-sm rounded-0 vh-100">
+        <div class="home-team d-flex align-items-center" style="min-height: 100vh">
+          <div class="box w-100">
+            <div class="text-bg-danger h1" onclick="changeScore(this.id, 1)" id="homeTeamScore">25</div>
+            <div class="row text-center h2" onclick="changeScore('homeTeamScore', -1)"> <div class="col undo-button">&#10226;</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Away Team -->
+    <div class="col">
+      <div class="card shadow-sm rounded-0 vh-100">
+        <div class="away-team d-flex align-items-center" style="min-height: 100vh" id="awayTeamBtn">
+          <div class="box w-100">
+            <div class="h1" onclick="changeScore(this.id, 1)" id="awayTeamScore">25</div>
+            <div class="row text-center h2" onclick="changeScore('awayTeamScore', -1)"> <div class="col undo-button">&#10226;</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
