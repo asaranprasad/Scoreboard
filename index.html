@@ -63,6 +63,20 @@
     let newScore = parseInt(score) + parseInt(increment); 
     elm.innerHTML = (0 <= newScore) ? newScore : score;
   }
+
+  // Keyboard shortcut
+  document.onkeydown = function (e) {
+            switch (e.keyCode) {
+                case 37:
+                    // Left Key pressed
+                    changeScore('homeTeamScore', 1);
+                    break;
+                case 39:
+                    // Right Key pressed
+                    changeScore('awayTeamScore', 1);
+                    break;
+                  }
+        };
 </script>
 
 </head>
